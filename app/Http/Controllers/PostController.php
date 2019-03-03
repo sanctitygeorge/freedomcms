@@ -61,16 +61,39 @@ class PostController extends Controller
             'featured' => 'required|boolean',
             'image' => 'required',
              ));
+
+
+
+            // Get filename with the extension
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('image')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+
+            //Destination_path
+
+            $destination_path = public_path().'/posts_images';
+
+
+            // Upload Image
+            $path = $request->file('image')->move($destination_path, $fileNameToStore);
+
+         
     
             $posts = new Post;
 
-            $path = Storage::putFile('public', $request->file('image'));
-            $url = Storage::url($path);
+            // $path = Storage::putFile('public', $request->file('image'));
+            // $url = Storage::url($path);
+
+        //my post
 
             $posts->title = $request->title;
             $posts->slug = $request->slug;
             $posts->body = $request->body;
-            $posts->image = $url;
+            $posts->image =$fileNameToStore;
             $posts->featured = $request->featured;
         
     
@@ -117,20 +140,39 @@ class PostController extends Controller
     {
         $this->validate($request, array(
             'title' => 'required|string',
-            'slug' => 'required|string|max:255|unique:posts',
+            'slug' => 'required',
             'body' => 'required|string',
             'featured' => 'required|boolean',
              ));
+
+
+         // Get filename with the extension
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('image')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+
+            //Destination_path
+
+            $destination_path = public_path().'/posts_images';
+
+
+            // Upload Image
+            $path = $request->file('image')->move($destination_path, $fileNameToStore);
     
+            
             $posts = Post::find($id);
 
-            $path = Storage::putFile('public', $request->file('image'));
-            $url = Storage::url($path);
+            // $path = Storage::putFile('public', $request->file('image'));
+            // $url = Storage::url($path);
 
             $posts->title = $request->input('title');
             $posts->slug = $request->input('slug');
             $posts->body = $request->input('body');
-            $posts->image = $url;
+            $posts->image =$fileNameToStore;
             $posts->featured = $request->input('featured');
         
     

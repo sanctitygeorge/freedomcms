@@ -3,11 +3,11 @@
 
 @section('content')
 
-<br>
+<br><br><br><br><br>
         <div class="container">
     <div class="row justify-content-center">
     <div class="col-md-2">
-    <a href="{{ route('home') }}"><i class="fa fa-fw fa-home"></i>Dashboard</a>
+    <a href="{{ route('home') }}" class="btn btn-info"><i class="fa fa-fw fa-home"></i>Dashboard</a>
         </div>
         <div class="col-md-8">
             <div class="card">

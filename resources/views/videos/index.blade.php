@@ -24,9 +24,9 @@
 
 
 <div class="container" style="background-color: #fff;"><br>
-	<div class="row">
+	<div class="row" style="background-color: #fff">
 	<div class="col-md-2">
-	<a href="{{ route('home') }}"><i class="fa fa-fw fa-home"></i> Dashboard</a>
+	<a href="{{ route('home') }}" class="btn btn-info"><i class="fa fa-fw fa-home"></i> Dashboard</a>
 		</div>
 	
 	<div class="col-md-2">
@@ -47,6 +47,7 @@
 	</div>
 
 	</div>
+</div>
 	<hr>
 	<br>
 
@@ -54,7 +55,7 @@
 
    
 
-<h3 align="center">Your Videos</h3>
+<h3 align="center">VIDEOS</h3>
 <br>
 
 @if(count($video) > 0)

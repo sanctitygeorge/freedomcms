@@ -24,7 +24,7 @@
 
 		</div>
 		<div class="card-body">
-			<img class="mx-auto d-block img-fluid" src= "{{ asset($posts->image) }}" alt="post-image" class="img-responsive" style="width:100%;">
+			<img class="mx-auto d-block img-fluid" src= "{{ asset('posts_images/'.$posts->image) }}" alt="post-image" class="img-responsive" style="width:100%;">
 			<hr>
 			<!-- <div class="jumbotron"> -->
 				<p>{!! $posts->body !!}</p>
@@ -40,7 +40,7 @@
 
 	@else
 
-	<h4>No Events Found</h4>
+	<h4>No Event Found</h4>
 
 	@endif
 </div>

@@ -9,7 +9,7 @@ class UploadController extends Controller
     public function upload(Request $request)
     {
     	 $validation = $request->validate([
-        'music' => 'required|file|max:10240'
+        'music' => 'required|file'
  
     ]);
     	$file = $validation['music']; // get the validated file
@@ -19,7 +19,7 @@ class UploadController extends Controller
     	$extesion = $file->getClientOriginalExtension();
     	$files = $file->getClientOriginalName();
     	$filename = $files.'_'.time().'.'.$extesion;
-    	$file->move($destination_path,$filename);
+    	$path = $file->move($destination_path,$filename);
 
     	return redirect()->back() ->with('success_message', 'New Music Added Successfully!!');
 

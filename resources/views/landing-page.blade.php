@@ -143,9 +143,9 @@
 		</div>
 		<div class="card-body">
 			<a href="{{ route('posts', $posts->slug) }}">
-			<img class="mx-auto d-block img-fluid" src= "{{ asset($posts->image) }}" alt="post-image" class="img-responsive" style="width:100%;"></a>
+			<img class="mx-auto d-block img-fluid" src= "{{ asset('posts_images/'.$posts->image) }}" alt="post-image" class="img-responsive" style="width:100%;"></a>
 			<hr>
-				<p>{!!substr(strip_tags($posts->body), 0, 25) !!}<a class="btn btn-default" href="{{ route('posts', $posts->slug) }}" style="background-color:goldenrod;">Read More &raquo;</a></p></p>
+				<p>{!!substr(strip_tags($posts->body), 0, 25) !!}... <a class="btn btn-default" href="{{ route('posts', $posts->slug) }}" style="background-color:goldenrod;"> Read More &raquo;</a></p></p>
 			
 		</div>
 	</div><br>
@@ -156,11 +156,11 @@
 	<h5 align="center"> {{ $post->links() }} </h5>
 		
 <br>
-		<p style="text-align: center;"><a href="{{ route('posts') }}" class="btn btn-secondary btn-lg" style="background-color:goldenrod;"> Other Events</a></p>
+		<p style="text-align: center;"><a href="{{ route('posts') }}" class="btn btn-secondary btn-lg" style="background-color:goldenrod;"> All Events</a></p>
 <br>
 	@else
 
-	<h4 align="center">No Posts Found</h4>
+	<h4 align="center">No Event Found</h4>
 
 	@endif
 

@@ -3,7 +3,7 @@
 @section('content')
 
 <br><br><br><br>
-<div class ="container">
+<div class ="container" style="background-color: #fff">
 
 
     @if (session()->has('success_message'))
@@ -21,11 +21,14 @@
                     </ul>
                 </div>
             @endif
+</div>
 
-            <div class="row">
+    <div class="container" style="background-color: #fff">
+<br>
+    <div class="row" style="background-color: #fff">
 
             <div class="col-md-4">
-         <a href="{{ route('home') }}"><i class="fa fa-fw fa-home"></i> Dashboard</a>
+         <a href="{{ route('home') }}" class="btn btn-info"><i class="fa fa-fw fa-home"></i> Dashboard</a>
     </div>
         <div class="col-md-4">
     <a href="{{ route('feedbacks.create') }}" class="btn btn-primary">Create Feedback &nbsp;</a>
@@ -36,14 +39,15 @@
         </h3>
     </div>
                 
-            </div>
+    </div>
 
-        </div>
+       </div>
 
-   
+<br>
+<hr>
 
 <h3 align="center">
-<br>User Feedbacks
+<br>FEEDBACKS
 </h3>
 <br>
 

@@ -52,7 +52,7 @@
            Slug 
         </div>
         <div class="card-body">
-          <h3>{{$post->slug}}</h3>  
+          <p>{{$post->slug}}</p>  
         </div>
     </div>
 </div>
@@ -76,7 +76,7 @@
            Image
         </div>
         <div class="card-body">
-          <img class="img-fluid" src="{{ asset($post->image) }}" alt="post image" width="80%">
+          <img class="img-fluid" src="{{ asset('posts_images/'.$post->image) }}" alt="post image" width="80%">
         </div>
     </div>
             

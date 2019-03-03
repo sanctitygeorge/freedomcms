@@ -25,9 +25,9 @@
 
 
 <div class="container" style="background-color: #fff;"><br>
-	<div class="row">
+	<div class="row" style="background-color: #fff">
 	<div class="col-md-2">
-	<a href="{{ route('home') }}"><i class="fa fa-fw fa-home"></i>Dashboard</a>
+	<a href="{{ route('home') }}" class="btn btn-info"><i class="fa fa-fw fa-home"></i>Dashboard</a>
 		</div>
 	
 	<div class="col-md-2">
@@ -55,7 +55,7 @@
 
    
 
-<h3 align="center"> Posts</h3>
+<h3 align="center"> POSTS</h3>
 <br>
 
 @if(count($post) > 0)
@@ -81,7 +81,7 @@
             <td>{{$posts->title}}</td>
             <td>{{$posts->slug}}</td>
              <td>{!! $posts->body !!}</td>
-            <td> <img class="img-fluid" src="{{ asset($posts->image) }}" alt="post image" width="40px" height="40px"> </td>
+            <td> <img class="img-fluid" src="{{ asset('posts_images/'.$posts->image) }}" alt="post image" width="40px" height="40px"> </td>
             <td>{{$posts->featured}}</td>
             <td>{{$posts->created_at->diffForHumans()}}</td>
             <!-- <td><a href="#" class="btn btn-secondary">Edit</a></td> -->
@@ -97,7 +97,7 @@
 
 </table>
 @else
- <p>No Posts found</p>
+ <p>No Post Found</p>
 @endif
                              
                 <!-- </div> -->
