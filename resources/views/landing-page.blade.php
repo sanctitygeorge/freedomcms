@@ -36,11 +36,22 @@
       <li data-target="#demo" data-slide-to="0" class="active"></li>
       <li data-target="#demo" data-slide-to="1"></li>
       <li data-target="#demo" data-slide-to="2"></li>
+<<<<<<< HEAD
+=======
+      <li data-target="#demo" data-slide-to="3"></li>
+>>>>>>> Third Commit
     </ul>
 
     <!-- The slideshow -->
     <!-- <div class="jumbotron" style="background-color:brown;"> -->
       <div class="carousel-inner">
+<<<<<<< HEAD
+=======
+      	 <div class="carousel-item">
+          <img class="mx-auto d-block img-fluid" src= "{{ asset('img/slide/banner 4.jpg') }}" alt="slide 4" style="width:100%">
+        </div>
+        
+>>>>>>> Third Commit
         <div class="carousel-item active">
           <!-- <img src="" alt="slide 1" style="background-image: url('img/slide/banner 1.jpg');"> -->
           <img class="mx-auto d-block img-fluid" src= "{{ asset('img/slide/banner 1.jpg') }}" alt="slide 1" class="img-responsive" style="width:100%;">
@@ -51,10 +62,16 @@
         </div>
 
         <div class="carousel-item">
+<<<<<<< HEAD
           <img class="mx-auto d-block img-fluid" src= "{{ asset('img/slide/banner.jpg') }}" alt="slide 3" style="width:100%">
         </div>
 
 
+=======
+          <img class="mx-auto d-block img-fluid" src= "{{ asset('img/slide/banner 3.jpg') }}" alt="slide 3" style="width:100%">
+        </div>
+
+>>>>>>> Third Commit
       </div>
     </div>
     <!-- Left and right controls -->
