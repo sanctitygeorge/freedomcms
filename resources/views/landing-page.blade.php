@@ -47,18 +47,14 @@
         </div>
 
         <div class="carousel-item active">
-          <!-- <img src="" alt="slide 1" style="background-image: url('img/slide/banner 1.jpg');"> -->
           <img class="mx-auto d-block img-fluid" src= "{{ asset('img/slide/banner 1.jpg') }}" alt="slide 1" class="img-responsive" style="width:100%;">
-
         </div>
+        
         <div class="carousel-item">
           <img class="mx-auto d-block img-fluid" src= "{{ asset('img/slide/banner 2.jpg') }}" alt="slide 2" style="width:100%;"> 
         </div>
 
-        <div class="carousel-item">
-          <img class="mx-auto d-block img-fluid" src= "{{ asset('img/slide/banner.jpg') }}" alt="slide 3" style="width:100%">
-        </div>
-
+          <div class="carousel-item">
           <img class="mx-auto d-block img-fluid" src= "{{ asset('img/slide/banner 3.jpg') }}" alt="slide 3" style="width:100%">
         </div>
 
