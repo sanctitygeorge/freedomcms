@@ -11,6 +11,15 @@ use App\Feedback;
 
 class PageController extends Controller
 {
+
+    public function getSingle($slug)
+    {
+        
+        $post = Post::where('slug', '=', $slug)->first();
+         
+
+        return view('pages.single')->with('post', $post);
+    }
     
     public function post()
     {

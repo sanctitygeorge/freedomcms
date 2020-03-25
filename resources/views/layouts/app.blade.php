@@ -121,19 +121,19 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/">{{ __('Home') }}</a>
+                            <a class="nav-link" href="/" style="font-size: 17px; color:goldenrod;">{{ __('Home') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('posts') }}">{{ __('Our Events') }}</a>
+                            <a class="nav-link" href="{{ route('posts') }}" style="color:goldenrod;">{{ __('Our Events') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('videos') }}">{{ __('Media Center') }}</a>
+                            <a class="nav-link" href="{{ route('videos') }}" style="color:goldenrod;">{{ __('Media Center') }}</a>
                         </li>
                         <!-- <li class="nav-item">
                             <a class="nav-link" href="#">{{ __('Fellowships') }}</a>
                         </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('about-us') }}">{{ __('Our Mission') }}</a>
+                            <a class="nav-link" href="{{ route('about-us') }} "style="color:goldenrod;">{{ __('Our Mission') }}</a>
                         </li>
                     </ul>
 
@@ -141,10 +141,10 @@
                     <ul class="navbar-nav ml-auto">
 
                     <li class="nav-item">
-                            <a class="nav-link" href="{{ route('about-us') }}">{{ __('About Us') }}</a>
+                            <a class="nav-link" href="{{ route('about-us') }}" style="color:goldenrod;">{{ __('About Us') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('contact-us') }}">{{ __('Contact Us') }}</a>
+                            <a class="nav-link" href="{{ route('contact-us') }}" style="color:goldenrod;">{{ __('Contact Us') }}</a>
                         </li>
 
                         <!-- Authentication Links -->

@@ -4,6 +4,26 @@
 
 <br><br><br><br>
 
+<div class ="container">
+
+    @if (session()->has('success_message'))
+                <div class="alert alert-success">
+                    {{ session()->get('success_message') }}
+                </div>
+            @endif
+
+            @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
+
+
 <div class="container">
 
             <h3 align="center">Edit Post</h3> 
@@ -72,15 +92,18 @@
         @endif
         </div>
 
-        <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
-                {{ Form::file('image')}}
 
-            @if ($errors->has('image'))
-            <span class="help-block">
-                <strong>{{ $errors->first('image') }}</strong>
-            </span>
-        @endif               
+
+            <div class="form-group" style="background-color: #fff;"><br>
+        <label class="col-md-4 text-right"><h5>Image</h5></label>
+        <div class="col-md-8">
+            <input type="file" name="image" />
+            <img src="{{ URL::to('/') }}/posts_images/{{ $posts->image }}" class="img-thumbnail" width="100" />
+            <input type="hidden" name="hidden_image" value="{{ $posts->image }}" />
         </div>
+        <br>
+    </div>
+
 
         <div class="col-md-2">
         {{ Form::label('featured', 'Featured:') }}

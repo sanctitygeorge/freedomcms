@@ -40,7 +40,7 @@
            Post Title
         </div>
         <div class="card-body">
-          <h3>{{$post->title}}</h3>  
+          <h5>{{$post->title}}</h5>  
         </div>
     </div>
             

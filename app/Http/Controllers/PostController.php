@@ -55,45 +55,30 @@ class PostController extends Controller
     public function store(Request $request)
     {
          $this->validate($request, array(
-            'title' => 'required|string',
-            'slug' => 'required|string',
-            'body' => 'required|string',
+            'title' => 'required|max:255',
+            'slug' => 'required|alpha_dash|min:5|max:255||unique:posts,slug',
+            'body' => 'required',
             'featured' => 'required|boolean',
-            'image' => 'required',
+            'image' => 'required|image|max:5120'
              ));
 
 
+             $image = $request->file('image');
 
-            // Get filename with the extension
-            $filenameWithExt = $request->file('image')->getClientOriginalName();
-            // Get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // Get just ext
-            $extension = $request->file('image')->getClientOriginalExtension();
-            // Filename to store
-            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            $new_name = rand() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('posts_images'), $new_name);
 
-            //Destination_path
-
-            $destination_path = public_path().'/posts_images';
-
-
-            // Upload Image
-            $path = $request->file('image')->move($destination_path, $fileNameToStore);
-
-         
-    
-            $posts = new Post;
-
+            
             // $path = Storage::putFile('public', $request->file('image'));
             // $url = Storage::url($path);
 
         //my post
 
+            $posts = new Post;
             $posts->title = $request->title;
             $posts->slug = $request->slug;
             $posts->body = $request->body;
-            $posts->image =$fileNameToStore;
+            $posts->image = $new_name;
             $posts->featured = $request->featured;
         
     
@@ -138,32 +123,42 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $posts = Post::find($id);
+
+        $image_name = $request->hidden_image;
+        $image = $request->file('image');
+        if($image != '')
+        {
+
         $this->validate($request, array(
-            'title' => 'required|string',
-            'slug' => 'required',
-            'body' => 'required|string',
+            'title' => 'required|max:255',
+            'body' => 'required',
             'featured' => 'required|boolean',
+            'image' => 'image|max:5120'
              ));
-
-
-         // Get filename with the extension
-            $filenameWithExt = $request->file('image')->getClientOriginalName();
-            // Get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // Get just ext
-            $extension = $request->file('image')->getClientOriginalExtension();
-            // Filename to store
-            $fileNameToStore = $filename.'_'.time().'.'.$extension;
-
-            //Destination_path
-
-            $destination_path = public_path().'/posts_images';
-
-
-            // Upload Image
-            $path = $request->file('image')->move($destination_path, $fileNameToStore);
-    
             
+            $image_name = rand() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('posts_images'), $image_name);
+        }
+        elseif ($request->input('slug') == $posts->slug) {
+         $this->validate($request, array(
+            'title' => 'required|max:255',
+            'body' => 'required',
+            'featured' => 'required|boolean',
+            'image' => 'image|max:5120'
+             ));   
+        }
+        else
+        {
+            $request->validate([
+                'title' => 'required|max:255',
+                'slug' => 'required|alpha_dash|min:5|max:255||unique:posts,slug',
+                'body' => 'required',
+                'featured' => 'required|boolean',
+            ]);
+        }
+
+            //Save data to the database
             $posts = Post::find($id);
 
             // $path = Storage::putFile('public', $request->file('image'));
@@ -172,7 +167,7 @@ class PostController extends Controller
             $posts->title = $request->input('title');
             $posts->slug = $request->input('slug');
             $posts->body = $request->input('body');
-            $posts->image =$fileNameToStore;
+            $posts->image =$image_name;
             $posts->featured = $request->input('featured');
         
     

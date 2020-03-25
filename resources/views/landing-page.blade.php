@@ -140,15 +140,15 @@
 		<div class="col-md-6">
 	<div class="card">
 		<div class="card-header">
-			<h4 align="center"><strong><a href="{{ route('posts', $posts->slug) }}">{{ $posts->title}}</a></strong></h4>
-			<small>Updated - {{$posts->created_at->diffForHumans()}}</small>
+			<h4 align="center"><strong><a href="{{ route('pages.single', $posts->slug) }}">{{ $posts->title}}</a></strong></h4>
+			<!-- <small>Updated - {{$posts->created_at->diffForHumans()}}</small> -->
 
 		</div>
 		<div class="card-body">
-			<a href="{{ route('posts', $posts->slug) }}">
+			<a href="{{ route('pages.single', $posts->slug) }}">
 			<img class="mx-auto d-block img-fluid" src= "{{ asset('posts_images/'.$posts->image) }}" alt="post-image" class="img-responsive" style="width:100%;"></a>
 			<hr>
-				<p>{!!substr(strip_tags($posts->body), 0, 25) !!}... <a class="btn btn-default" href="{{ route('posts', $posts->slug) }}" style="background-color:goldenrod;"> Read More &raquo;</a></p></p>
+				<p>{!!substr(strip_tags($posts->body), 0, 25) !!}... <a class="btn btn-default" href="{{ route('pages.single', $posts->slug) }}" style="background-color:goldenrod;"> Read More &raquo;</a></p></p>
 			
 		</div>
 	</div><br>

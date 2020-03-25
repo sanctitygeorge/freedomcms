@@ -20,6 +20,8 @@ Route::get('/', 'LandingPageController@index')->name('landing-page');
 Route::post('upload', 'UploadController@upload');
 
 //Pages Route
+Route::get('/posts/{slug}', 'PageController@getSingle')->name('pages.single');
+
 Route::get('/posts', 'PageController@post')->name('posts');
 Route::get('/videos', 'PageController@video')->name('videos');
 Route::get('/audios', 'PageController@audio')->name('audios');
